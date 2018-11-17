@@ -7,14 +7,16 @@ import random
 
 gzfoodP=pub.pachong('www.dianping.com')
 
-numdict={'aq-fjnF':'6', 'aq-cdaf':'0', 'aq-jl2V':'7', 'aq-lQsz':'3', 'aq-fxPw':'9', 'aq-lS9h':'8', 'aq-9dfE':'4', 'aq-iB0b':'5', 'aq-NWJt':'2'}
+numdict={'<span class=\"aq-fjnF\">':'6', '<span class=\"aq-cdaf\">':'0', '<span class=\"aq-jl2V\">':'7', '<span class=\"aq-lQsz\">':'3', '<span class=\"aq-fxPw\">':'9', '<span class=\"aq-lS9h\">':'8', '<span class=\"aq-9dfE\">':'4', '<span class=\"aq-iB0b\">':'5', '<span class=\"aq-NWJt\">':'2'}
 
 if __name__ == '__main__':
     with open('f.txt','wt') as f:
         code = set()
-        for i in range(1,3):
+        for i in range(1,2):
             time.sleep(random.randint(1,3))
-            gzfood=gzfoodP.getHtml('http://www.dianping.com/guangzhou/ch10/g1338p{}'.format(i))
+            gzfood=gzfoodP.getHtml('http://www.dianping.com/guangzhou/ch10/g210p{}'.format(i))
+            for key,value in numdict.items():
+                gzfood=gzfood.replace(key.encode('utf-8'),value.encode('utf-8'))
             bsObj=BeautifulSoup(gzfood,'html5lib')
             shops=bsObj.find('div',{'id':'shop-all-list'}).find_all('li')
             for shop in shops:

@@ -9,11 +9,13 @@ class pachong():
         self.headers = {
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
             , 'Accept-Language': 'zh-CN,zh;q=0.9'
-            , 'Accept-Encoding': 'gzip, deflate, br'
-            ,'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+            , 'Accept-Encoding': 'gzip, deflate'
+            # ,'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+            ,'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36'
             , 'Host': host
             , 'Connection': 'keep-alive'
-            , 'Cache-Control': 'max-age=0'}
+            , 'Cache-Control': 'max-age=0'
+            , 'Upgrade-Insecure-Requests': '1'}
 
     def getHtml(self,url, params=''):
         s = requests.Session()
